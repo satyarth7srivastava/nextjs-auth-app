@@ -64,7 +64,7 @@ export default function LoginPage() {
             <button
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                 onClick={onLogin}>{buttonDisabled?"Plz enter":"Login"}</button>
-            <Link className="m-2" href="/signup">Don't have an account</Link>
+            <Link className="m-2" href="/signup">Dont have an account</Link>
         </div>
     );
 }
