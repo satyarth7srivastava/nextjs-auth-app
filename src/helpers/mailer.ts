@@ -8,7 +8,20 @@ export const sendMail = async ({ email, emailtype, userId }: any) => {
     console.log(email, emailtype, userId);
     try {
         const Token = await bcryptjs.hash(userId.toString(), 10);
-        const hashedToken = Token.split('/').join('');
+        const Token2 = Token.split('/').join('');
+        const Token3 = Token2.split('.').join('');
+        const Token4 = Token3.split('\\').join('');
+        const Token5 = Token4.split('$').join('');
+        const Token6 = Token5.split('!').join('');
+        const Token7 = Token6.split('#').join('');
+        const Token8 = Token7.split('%').join('');
+        const Token9 = Token8.split('^').join('');
+        const Token10 = Token9.split('&').join('');
+        const Token11 = Token10.split('*').join('');
+        const Token12 = Token11.split('(').join('');
+        const Token13 = Token12.split(')').join('');
+        const hashedToken = Token13.split('=').join('');
+
         if (emailtype === "VERIFY") {
             await User.findByIdAndUpdate(userId, { verifyToken: hashedToken, verifyTokenExpiry: Date.now() + 3600000 });
         } else if (emailtype === "RESET") {
