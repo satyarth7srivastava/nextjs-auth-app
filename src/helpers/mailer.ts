@@ -7,7 +7,8 @@ import { verify } from 'crypto';
 export const sendMail = async ({ email, emailtype, userId }: any) => {
     console.log(email, emailtype, userId);
     try {
-        const hashedToken = await bcryptjs.hash(userId.toString(), 10);
+        const Token = await bcryptjs.hash(userId.toString(), 10);
+        const hashedToken = Token.split('/').join('');
         if (emailtype === "VERIFY") {
             await User.findByIdAndUpdate(userId, { verifyToken: hashedToken, verifyTokenExpiry: Date.now() + 3600000 });
         } else if (emailtype === "RESET") {
